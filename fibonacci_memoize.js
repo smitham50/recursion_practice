@@ -8,6 +8,8 @@ function fib(n) {
   }
   if(n === 1 || n === 2) {
     result = 1;
+    memo[n] = result;
+    console.log(result);
   } else {
     result = fib(n - 1) + fib(n - 2);
     memo[n] = result;
@@ -17,4 +19,4 @@ function fib(n) {
   return result;
 }
 
-fib(200);
+fib(5);
