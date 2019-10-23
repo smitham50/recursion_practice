@@ -47,20 +47,21 @@ n7.left = n14;
 n7.right = n15;
 
 let original = [];
-//iterate over tree and print nodes
-function treePrint(root) {
+
+function storeValues(root) {
   if (root) {
     original.push(root.val)
-    return treePrint(root.left), treePrint(root.right);
+    return storeValues(root.left), storeValues(root.right);
   }
 }
 
-// treePrint(searchTree.root);
+storeValues(searchTree.root);
 
 let inverted = [];
 
 function invertTree(root) {
   if (root) {
+    inverted.push(root.val);
     let temp = root.left;
     root.left = invertTree(root.right);
     root.right = invertTree(temp);
@@ -69,7 +70,7 @@ function invertTree(root) {
   return root;
 };
 
-// invertTree(searchTree.root)
+invertTree(searchTree.root)
 
 //search method for binary search tree
 function search(number, root) {
@@ -87,14 +88,14 @@ function search(number, root) {
     }
 }
 
-search(25, searchTree.root);
-search(19, searchTree.root);
-search(11, searchTree.root);
-search(17, searchTree.root);
-search(10, searchTree.root);
-search(30, searchTree.root);
+// search(25, searchTree.root);
+// search(19, searchTree.root);
+// search(11, searchTree.root);
+// search(17, searchTree.root);
+// search(10, searchTree.root);
+// search(30, searchTree.root);
 
-search()
+// search()
 
-// console.log("ORIGINAL", original, "INVERTED", inverted);
+console.log("ORIGINAL", original, "INVERTED", inverted);
 
